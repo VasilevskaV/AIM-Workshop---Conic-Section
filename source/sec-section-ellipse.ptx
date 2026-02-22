@@ -3,7 +3,7 @@
 <section xml:id="sec-section-ellipse" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Ellipse</title>
 <subsection xml:id="sec-intro-to-ellipses">
-  <title>Brief Introduction to Ellipses</title>
+  <title>Brief Introduction to Ellipse</title>
 
   <introduction>
     <p>
@@ -14,7 +14,6 @@
         The figure below<fn>
         Pbroks13 (<url href="https://commons.wikimedia.org/wiki/File:Conic_sections_with_plane.svg" visual="commons.wikimedia.org/wiki/File:Conic_sections_with_plane.svg">Wikimedia Commons</url>), 
         <q>Conic sections with plane</q>, cropped to show only ellipse and circle by L Michaels, 
-        <url href="https://creativecommons.org/licenses/by/3.0/" visual="creativecommons.org/licenses/by/3.0/">CC BY 3.0</url>.
       </fn> shows two types of conic sections. When a plane is perpendicular to the axis of the cone, the shape of the intersection is a circle. A slightly tilted plane creates an oval-shaped conic section called an <term>ellipse</term>.
       </p>
 
@@ -26,87 +25,959 @@
       
     </figure>
   </introduction>
-</subsection>
-
-<hr />
-
-  <subsection xml:id="sec-ellipse-vocabulary">
+  </subsection>
+<subsection xml:id="sec-ellipse-definition-vocabulary">
   <title>Ellipse Definition and Vocabulary</title>
 
   <p>
-    An <dfn>ellipse</dfn> is the set of all points <m>Q(x, y)</m> for which the sum of the distance to two fixed points <m>F_1(x_1, y_1)</m> and <m>F_2(x_2, y_2)</m>, called the <dfn>foci</dfn> (plural of focus), is a constant <m>k</m>:
+    An <term>ellipse</term> is the set of all points <m>Q(x, y)</m> for which the sum of the distance to two fixed points <m>F_1(x_1, y_1)</m> and <m>F_2(x_2, y_2)</m>, called the <term>foci</term> (plural of focus), is a constant <m>k</m>:
     <me>d(Q, F_1) + d(Q, F_2) = k</me>
   </p>
 
-  <figure xml:id="fig-ellipse-diagram">
-    <caption>An ellipse with foci <m>F_1</m>, <m>F_2</m> and point <m>Q</m>.</caption>
-    <image source="graphics/ellipse-diagram.png" />
-  </figure>
+  <figure xml:id="ellipse-definition-figure">
+      <caption>Conic sections resulting from a plane intersecting a cone.</caption>
+      <image xml:id="image-ellipse-definition" >
+      <latex-image>
+      \begin{tikzpicture}[scale=1.2]
+      % Draw the Axes
+      \draw[thick, ->] (-4.5,0) -- (4.5,0) node[right] {$x$};
+      \draw[thick, ->] (0,-3) -- (0,3) node[above] {$y$};
+
+      % Draw the Ellipse (a=4, b=2.2)
+      \draw[ultra thick, blue!80!black] (0,0) ellipse (4cm and 2.2cm);
+
+      % Define Foci (c = sqrt(4^2 - 2.2^2) approx 3.34)
+      \coordinate (F1) at (3.34,0);
+      \coordinate (F2) at (-3.34,0);
+      \coordinate (Q) at (1.5, 2.04); % A point on the ellipse
+
+      % Draw the dashed lines to point Q
+      \draw[thick, dashed, red!70!black] (F2) -- (Q) node[midway, above left] {$d(Q,F_2)$};
+      \draw[thick, dashed, red!70!black] (F1) -- (Q) node[midway, above right] {$d(Q,F_1)$};
+
+      % Draw the points with updated labels
+      \fill (F1) circle (3pt) node[below=5pt] {$F_1(c,0)$};
+      \fill (F2) circle (3pt) node[below=5pt] {$F_2(-c,0)$};
+      \fill (Q) circle (4pt) node[above right] {$Q(x,y)$};
+
+    \end{tikzpicture}
+      <!--<description>A diagram showing a plane intersecting a cone to create a circle and an ellipse.</description>
+      -->
+     </latex-image> 
+     </image>
+    </figure>
 
   <p>
+    To graph and describe ellipses, we use the following standard vocabulary:
     <ul label="disc">
       <li>
-        <p>The <term>major axis</term> is the line passing through the foci.</p>
+        <p>The <term>major axis</term> is the line segment passing through the foci with endpoints on the ellipse.</p>
       </li>
       <li>
-        <p><term>Vertices</term> are the points on the ellipse which intersect the major axis.</p>
-      </li>
-      <li>
-        <p>The <term>major axis length</term> is the length of the line segment between the vertices.</p>
+        <p><term>Vertices</term> are the points where the ellipse intersects the major axis.</p>
       </li>
       <li>
         <p>The <term>center</term> is the midpoint between the vertices (or the midpoint between the foci).</p>
       </li>
       <li>
-        <p>The <term>minor axis</term> is the line perpendicular to the major axis passing through the center.</p>
+        <p>The <term>minor axis</term> is the line segment perpendicular to the major axis passing through the center with endpoints on the ellipse.</p>
       </li>
       <li>
-        <p><term>Minor axis endpoints</term> are the points on the ellipse which intersect the minor axis.</p>
+        <p>The endpoints of the minor axis are called <term>co-vertices</term> (or minor axis endpoints).</p>
       </li>
       <li>
-        <p>The minor axis endpoints are also sometimes called <term>co-vertices</term>.</p>
-      </li>
-      <li>
-        <p>The <term>minor axis length</term> is the length of the line segment between minor axis endpoints.</p>
+        <p>The <term>major axis length</term> and <term>minor axis length</term> refer to the total distance between their respective endpoints.</p>
       </li>
     </ul>
   </p>
-</subsection>
-<subsection xml:id="sec-graphing-ellipses-origin">
-  <title>Graph an Ellipse Centered at the Origin</title>
 
   <p>
-    <ul>
-      <li>
-        <p>
-          The line through the foci intersects the ellipse at two points called <term>vertices</term>.
-        </p>
-      </li>
-      <li>
-        <p>
-          The line segment with endpoints at the vertices is called the <term>major axis</term>. 
-          The <term>center</term> of the ellipse is the midpoint of the major axis.
-        </p>
-      </li>
-      <li>
-        <p>
-          The line segment perpendicular to the major axis and passing through the center of the ellipse with endpoints on the ellipse is called the <term>minor axis</term>.
-        </p>
-      </li>
-    </ul>
-  </p>
-
-  <sidebyside widths="45% 45%" margins="auto" valign="middle">
+  Ellipse orientation is determined by the 
+  placement of the major axis. We typically focus on the two standard cases: 
+  a <term>horizontal orientation</term> and a <term>vertical orientation</term> as shown in the figures below.
+</p>
+  <!-- <sidebyside widths="45% 45%" margins="auto" valign="middle">
     <figure xml:id="fig-horizontal-ellipse">
       <caption>Horizontal ellipse centered at the origin.</caption>
       <image source="graphics/horizontal-ellipse.png" />
     </figure>
-    <figure xml:id="fig-vertical-ellipse">
+    <figure xml:id="fig-vertical-ellipse" nonumber="yes">
       <caption>Vertical ellipse centered at the origin.</caption>
       <image source="graphics/vertical-ellipse.png" />
     </figure>
   </sidebyside>
+</subsection> -->
+
+<sidebyside widths="48% 48%" margins="auto" valign="middle">
+    <figure xml:id="fig-horizontal-ellipse-arrows">
+        <caption>Horizontal ellipse centered at the origin.</caption>
+        <image xml:id="img-horizontal-ellipse-arrows">
+            <latex-image>
+                \begin{tikzpicture}[scale=0.7, every node/.style={font=\scriptsize}]
+                    % Shaded Axis Regions
+                    \fill[green!10] (-4,-0.3) rectangle (4,0.3);
+                    \fill[red!10] (-0.3,-2.5) rectangle (0.3,2.5);
+
+                    % Axes
+                    \draw[thick, ->] (-4.5,0) -- (4.5,0) node[right] {$x$};
+                    \draw[thick, ->] (0,-3) -- (0,3) node[above] {$y$};
+                    
+                    % The Ellipse
+                    \draw[ultra thick, blue] (0,0) ellipse (3.5cm and 2cm);
+                    
+                    % Points
+                    \foreach \x in {-3.5, 3.5} \fill[blue] (\x,0) circle (3pt);
+                    \foreach \y in {-2, 2} \fill[blue] (0,\y) circle (3pt);
+                    \foreach \x in {-2.2, 2.2} \fill[red] (\x,0) circle (3pt);
+                    \fill[red] (0,0) circle (3pt);
+
+                    % Labels with Arrows
+                    % Vertex
+                    %\node (vtext) at (4, 1.5) {vertex};
+                    %\draw[->, blue, thick] (vtext) -- (3.5,0.1);
+
+                    % Focus
+                    \node (ftext) at (2, 1.8) {\textbf{focus}};
+                    \draw[->, red, thick] (ftext) -- (2.2,0.1);
+
+                    % Major Axis
+                    \node (matext) at (2.5, -1.5) {\textbf{major axis}};
+                    \draw[->, black, thick] (matext) -- (1.5,-0.1);
+
+                    % Minor Axis
+                    \node (mitext) at (-2.5, 1.5) {\textbf{minor axis}};
+                    \draw[->, black, thick] (mitext) -- (-0.1, 1);
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+
+    <figure xml:id="fig-vertical-ellipse-arrows">
+        <caption>Vertical ellipse centered at the origin.</caption>
+        <image xml:id="img-vertical-ellipse-arrows">
+            <latex-image>
+                \begin{tikzpicture}[scale=0.7, every node/.style={font=\scriptsize}]
+                    % Shaded Axis Regions
+                    \fill[red!10] (-0.3,-4) rectangle (0.3,4);
+                    \fill[green!10] (-2.5,-0.3) rectangle (2.5,0.3);
+
+                    % Axes
+                    \draw[thick, ->] (-3,0) -- (3,0) node[right] {$x$};
+                    \draw[thick, ->] (0,-4.5) -- (0,4.5) node[above] {$y$};
+                    
+                    % The Ellipse (Vertical)
+                    \draw[ultra thick, blue] (0,0) ellipse (2cm and 3.5cm);
+                    
+                    % Points
+                    \foreach \y in {-3.5, 3.5} \fill[blue] (0,\y) circle (3pt);
+                    \foreach \x in {-2, 2} \fill[blue] (\x,0) circle (3pt);
+                    \foreach \y in {-2.2, 2.2} \fill[red] (0,\y) circle (3pt);
+                    \fill[red] (0,0) circle (3pt);
+
+                    % Labels with Arrows
+                    % Focus
+                    \node (vftext) at (1.8, 2.5) {\textbf{focus}};
+                    \draw[->, red, thick] (vftext) -- (0.1, 2.2);
+
+                    % Major Axis
+                    \node (vmatext) at (2, -1.5) {\textbf{major axis}};
+                    \draw[->, black, thick] (vmatext) -- (0.1, -2);
+
+                    % Minor Axis
+                    \node (vmitext) at (-2, 0.8) {\textbf{minor axis}};
+                    \draw[->, black, thick] (vmitext) -- (-1, 0.1);
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+</sidebyside>
 </subsection>
 
+<subsection xml:id="derivation">
+    <title>Derivation of Standard Equation of an Ellipse</title>
+    
+    <p>
+      From the definition the ellipse we can find an equation for an ellipse centered at origin <m>C(0,0)</m> with foci at <m>F_1(c,0)</m> and <m>F_2(-c,0)</m> where <m>c \gt 0</m>.
+    </p>
 
+    <p>
+      Suppose <m>Q(x,y)</m> is some point on the ellipse. The distance from <m>F_1</m> to <m>Q</m> is given by
+      <me>d(Q,F_1) = \sqrt{(x-c)^2 + (y-0)^2} = \sqrt{(x-c)^2 + y^2}</me>
+    </p>
+
+    <p>
+      Likewise, the distance from <m>F_2</m> to <m>Q</m> is given by
+      <me>d(Q,F_2) = \sqrt{(x-(-c))^2 + (y-0)^2} = \sqrt{(x+c)^2 + y^2}</me>
+    </p>
+
+    <p>
+  From the definition of the ellipse, the sum of these distances should be constant: 
+  <m>d(Q,F_1) + d(Q,F_2) = k</m> so that
+  <men xml:id="eqn-ellipse-sum">
+    \sqrt{(x-c)^2 + y^2} + \sqrt{(x+c)^2 + y^2} = k
+  </men>
+  </p>
+
+    <p>
+      If we label one of the vertices <m>(a,0)</m>, it should satisfy the equation above since it is a point on the ellipse. This allows us to write <m>k</m> in terms of <m>a</m>.
+    </p>
+
+    <md>
+      <mrow>\sqrt{(a-c)^2 + 0^2} + \sqrt{(a+c)^2 + 0^2} \amp = k</mrow>
+      <mrow>|a-c| + |a+c| \amp = k \amp\amp \text{Since } a \gt c \text{, these will be positive}</mrow>
+      <mrow>(a-c) + (a+c) \amp = k</mrow>
+      <mrow>2a \amp = k</mrow>
+    </md>
+
+    <p>
+      Plugging <m>k = 2a</m> into equation <xref ref="eqn-ellipse-sum" />, results the equation in a simple form.
+    </p>
+
+    <md>
+      <mrow>\sqrt{(x-c)^2 + y^2} + \sqrt{(x+c)^2 + y^2} \amp = 2a \amp\amp \text{Move one radical}</mrow>
+      <mrow>\sqrt{(x-c)^2 + y^2} \amp = 2a - \sqrt{(x+c)^2 + y^2} \amp\amp \text{Square both sides}</mrow>
+      <mrow>\left(\sqrt{(x-c)^2 + y^2}\right)^2 \amp = \left(2a - \sqrt{(x+c)^2 + y^2}\right)^2 \amp\amp \text{Expand}</mrow>
+      <mrow>(x-c)^2 + y^2 \amp = 4a^2 - 4a\sqrt{(x+c)^2 + y^2} + (x+c)^2 + y^2 \amp\amp \text{Expand more}</mrow>
+      <mrow>x^2 - 2xc + c^2 + y^2 \amp = 4a^2 - 4a\sqrt{(x+c)^2 + y^2} + x^2 + 2xc + c^2 + y^2</mrow>
+    </md>
+    <p>
+      Combining like terms and isolating the radical yields:
+    </p>
+
+    <p>
+      <md>
+        <mrow>4a\sqrt{(x+c)^2 + y^2} \amp = 4a^2 + 4xc \amp\amp \text{Divide by 4}</mrow>
+        <mrow>a\sqrt{(x+c)^2 + y^2} \amp = a^2 + xc \amp\amp \text{Square both sides again}</mrow>
+        <mrow>a^2 \left( (x+c)^2 + y^2 \right) \amp = a^4 + 2a^2xc + x^2c^2 \amp\amp \text{Expand}</mrow>
+        <mrow>a^2(x^2 + 2xc + c^2 + y^2) \amp = a^4 + 2a^2xc + x^2c^2 \amp\amp \text{Distribute}</mrow>
+        <mrow>a^2x^2 + 2a^2xc + a^2c^2 + a^2y^2 \amp = a^4 + 2a^2xc + x^2c^2 \amp\amp \text{Combine like terms}</mrow>
+      </md>
+    </p>
+
+    <p>
+    Seperating the terms with variables on the left and contants on the right gives:
+    </p>
+    <p>
+      <md>
+        <mrow>a^2x^2 - x^2c^2 + a^2y^2 \amp = a^4 - a^2c^2 \amp\amp \text{Factor common terms}</mrow>
+        <mrow>(a^2 - c^2)x^2 + a^2y^2 \amp = a^2(a^2 - c^2)</mrow>
+      </md>
+    </p>
+
+    <p>
+      Let <m>b^2 = a^2 - c^2</m>. Since <m>a \gt c</m>, we know <m>b \gt 0</m>. Substituting <m>b^2</m> for <m>a^2 - c^2</m> leaves:
+    </p>
+
+    <p>
+      <md>
+        <mrow>b^2x^2 + a^2y^2 \amp = a^2b^2 \amp\amp \text{Divide both sides by } a^2b^2</mrow>
+        <mrow>\frac{x^2}{a^2} + \frac{y^2}{b^2} \amp = 1</mrow>
+      </md>
+    </p>
+
+    <p>
+      This is the standard equation for an ellipse. We typically swap <m>a</m> and <m>b</m> when the major axis of the ellipse is vertical.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-standard-forms-origin">
+    <title>Key Features of Ellipses Centered at the Origin</title>
+  
+  <p>
+  The following table summarizes the key properties of ellipses centered at the origin <m>(0,0)</m> based on the orientation of the major axis. In these formulas, we assume <m>a \gt b \gt 0</m>, where the length of the major axis is <m>2a</m> and the length of the minor axis is <m>2b</m>.
+</p>
+    
+    <tabular top="medium" left="medium" right="medium" bottom="medium">
+      <row header="yes">
+        <cell></cell>
+        <cell>Major axis: <m>x</m>-axis</cell>
+        <cell>Major axis: <m>y</m>-axis</cell>
+      </row>
+      <row>
+        <cell>Equation:</cell>
+        <cell><m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m></cell>
+        <cell><m>\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1</m></cell>
+      </row>
+      <row>
+        <cell>Center:</cell>
+        <cell><m>(0, 0)</m></cell>
+        <cell><m>(0, 0)</m></cell>
+      </row>
+      <row>
+        <cell>Foci: (<m>c^2 = a^2 - b^2</m>)</cell>
+        <cell><m>(c, 0)</m> and <m>(-c, 0)</m></cell>
+        <cell><m>(0, c)</m> and <m>(0, -c)</m></cell>
+      </row>
+      <row>
+        <cell>Vertices: Endpoints of major axis</cell>
+        <cell><m>(a, 0)</m> and <m>(-a, 0)</m></cell>
+        <cell><m>(0, a)</m> and <m>(0, -a)</m></cell>
+      </row>
+      <row>
+        <cell>Endpoints of minor axis</cell>
+        <cell><m>(0, b)</m> and <m>(0, -b)</m></cell>
+        <cell><m>(b, 0)</m> and <m>(-b, 0)</m></cell>
+      </row>
+    </tabular>
+  </subsection> 
+
+  <!-- Example  -->
+
+  <example xml:id="ex-ellipse-1" number="9.1.1">
+  <!-- <title>Graphing an Ellipse Centered at the Origin</title> -->
+  <statement>
+    <p>
+      Graph the ellipse and identify the center, foci, and vertices for the equation:
+      <me>\frac{x^2}{25} + \frac{y^2}{4} = 1</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we identify that the ellipse is centered at the origin <m>(0,0)</m>. 
+      Comparing the given equation to the standard form <m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m>, 
+      we see that <m>a^2 = 25</m> and <m>b^2 = 4</m>.
+    </p>
+    <p>
+      Since <m>a^2 \gt b^2</m>, the major axis is horizontal. We find the following key values:
+      <ul>
+        <li>
+          <p>
+            <m>a = \sqrt{25} = 5</m>, so the <term>vertices</term> are at <m>(\pm 5, 0)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b = \sqrt{4} = 2</m>, so the <term>co-vertices</term> are at <m>(0, \pm 2)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the <term>foci</term>, we use <m>c^2 = a^2 - b^2</m>:
+            <me>c^2 = 25 - 4 = 21 \implies c = \sqrt{21}</me>
+            The foci are located at <m>(\pm \sqrt{21}, 0)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <!-- <figure xml:id="fig-ellipse-with-covertices">
+  <caption>The ellipse <m>\frac{x^2}{25} + \frac{y^2}{4} = 1</m> with all key points labeled.</caption> -->
+  <image xml:id="img-ellipse-full-labels">
+    <latex-image>
+      \begin{tikzpicture}[scale=0.8]
+        % Grid and Axes
+        \draw[help lines, gray!20] (-6,-4) grid (6,4);
+        \draw[thick, ->] (-6.5,0) -- (6.5,0) node[right] {$x$};
+        \draw[thick, ->] (0,-3.5) -- (0,3.5) node[above] {$y$};
+
+        % The Ellipse
+        \draw[very thick, blue] (0,0) ellipse (5 and 2);
+
+        % Vertices (a=5)
+        \filldraw[black] (5,0) circle (2pt) node[below right] {$(5,0)$};
+        \filldraw[black] (-5,0) circle (2pt) node[below left] {$(-5,0)$};
+
+        % Co-vertices (b=2)
+        \filldraw[red] (0,2) circle (2pt) node[above right] {$(0,2)$};
+        \filldraw[red] (0,-2) circle (2pt) node[below right] {$(0,-2)$};
+
+        % Foci (c=sqrt(21) approx 4.58)
+        \filldraw[darkgray] (4.58,0) circle (1.5pt) node[above] {$F_1$};
+        \filldraw[darkgray] (-4.58,0) circle (1.5pt) node[above] {$F_2$};
+
+        % Center
+        \filldraw (0,0) circle (1.5pt) node[below left] {$(0,0)$};
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+<!-- </figure> -->
+  </solution>
+</example>
+
+<!-- Try It Example -->
+
+<example xml:id="ex-2">
+  <title>Try It</title>
+  <statement>
+    <p>
+      Graph the ellipse and identify the center, foci, and vertices for the equation:
+      <me>\frac{x^2}{9} + \frac{y^2}{4} = 1</me>
+    </p>
+  </statement>
+  </example>
+
+<!-- Example 2 -->
+
+  <example xml:id="ex-graph-vertical-ellipse">
+  <statement>
+    <p>
+      Graph the ellipse and identify the center, foci, and vertices:
+      <me>49x^2 + 9y^2 = 441</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we rewrite the equation in standard form by dividing both sides by <m>441</m>:
+      <me>\frac{x^2}{9} + \frac{y^2}{49} = 1</me>
+    </p>
+    <p>
+      From this form, we identify the following:
+      <ul>
+        <li>
+          <p>The center is at the origin <m>(0, 0)</m>.</p>
+        </li>
+        <li>
+          <p>
+            Since the larger denominator is under the <m>y</m> term, the major axis is vertical. 
+            With <m>a^2 = 49</m>, the <term>vertices</term> are <m>(0, 7)</m> and <m>(0, -7)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            With <m>b^2 = 9</m>, the <term>co-vertices</term> are <m>(3, 0)</m> and <m>(-3, 0)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The distance to the <term>foci</term> is <m>c = \sqrt{49 - 9} = \sqrt{40} \approx 6.32</m>. 
+            The foci are <m>(0, \pm\sqrt{40})</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <!-- <figure xml:id="fig-vertical-ellipse-graph">
+      <caption>Graph of <m>\frac{x^2}{9} + \frac{y^2}{49} = 1</m></caption> -->
+      <image xml:id="img-vertical-ellipse">
+        <latex-image>
+          \begin{tikzpicture}[scale=0.5]
+            \draw[help lines, gray!20] (-10,-10) grid (10,10);
+            \draw[thick, ->] (-10.5,0) -- (10.5,0) node[right] {$x$};
+            \draw[thick, ->] (0,-10.5) -- (0,10.5) node[above] {$y$};
+            
+            % The Ellipse
+            \draw[very thick, blue] (0,0) ellipse (3 and 7);
+            
+            % Points and Labels
+            \filldraw[black] (0,7) circle (3pt) node[above right] {$(0,7)$};
+            \filldraw[black] (0,-7) circle (3pt) node[below right] {$(0,-7)$};
+            \filldraw[red] (3,0) circle (3pt) node[below right] {$(3,0)$};
+            \filldraw[red] (-3,0) circle (3pt) node[below left] {$(-3,0)$};
+            \filldraw (0,6.32) circle (2pt) node[left] {$F_1$};
+            \filldraw (0,-6.32) circle (2pt) node[left] {$F_2$};
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    <!-- </figure> -->
+  </solution>
+</example>
+<!-- Try It Example  -->
+<example xml:id="ex-3">
+  <title>Try It</title>
+  <statement>
+    <p>
+      Graph the ellipse and identify the center, foci, and vertices for the equation:
+      <me>25x^2 + 9y^2 = 900</me>
+    </p>
+  </statement>
+  </example>
+<subsection xml:id="subsec-standard-forms-centered-at-hk">
+  <title>Standard Forms of an Equation of an Ellipse Centered at <m>(h, k)</m></title>
+  
+  <p>
+    Ellipses not centered at the origin are horizontal or vertical shifts of the standard form the ellipse centered at <m>(0, 0)</m>, created by replacing <m>x</m> and <m>y</m> with <m>x - h</m> and <m>y - k</m> to move the center to <m>(h, k)</m>.
+  </p>
+
+  <p>Assume: <m>a > b > 0</m>. Note: length of the major axis is <m>2a</m>, and length of the minor axis is <m>2b</m>.</p>
+
+ <table xml:id="table-ellipse-properties-data">
+    <title>Properties of Ellipses</title>
+    <tabular bottom="minor" top="minor" left="minor" right="minor" widths="30% 35% 35%">
+        <row header="yes">
+            <cell></cell>
+            <cell>Major axis: horizontal</cell>
+            <cell>Major axis: vertical</cell>
+        </row>
+        <row>
+            <cell>Equation:</cell>
+            <cell><m>\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1</m></cell>
+            <cell><m>\frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1</m></cell>
+        </row>
+        <row>
+            <cell>Center:</cell>
+            <cell><m>(h, k)</m></cell>
+            <cell><m>(h, k)</m></cell>
+        </row>
+        <row>
+            <cell>Foci: (<m>c^2 = a^2 - b^2</m>)</cell>
+            <cell><m>(h \pm c, k)</m></cell>
+            <cell><m>(h, k \pm c)</m></cell>
+        </row>
+        <row>
+            <cell>Vertices:</cell>
+            <cell><m>(h \pm a, k)</m></cell>
+            <cell><m>(h, k \pm a)</m></cell>
+        </row>
+        <row>
+            <cell>Minor Axis Ends:</cell>
+            <cell><m>(h, k \pm b)</m></cell>
+            <cell><m>(h \pm b, k)</m></cell>
+        </row>
+    </tabular>
+</table>
+
+<sidebyside widths="45% 45%" margins="auto">
+    <figure xml:id="fig-horiz-summary-graph">
+        <caption>Horizontal Ellipse Graph</caption>
+        <image>
+            <latex-image>
+                \begin{tikzpicture}[scale=0.5, every node/.style={font=\scriptsize}]
+                  \draw[-&gt;] (-0.5,0) -- (5.5,0) node[right] {$x$};
+                  \draw[-&gt;] (0,-0.5) -- (0,5.5) node[above] {$y$};
+                  \coordinate (C) at (2.5,2.5);
+                  \draw[blue, ultra thick] (C) ellipse (2 and 1.2);
+                  \filldraw (C) circle (2pt) node[below] {$(h,k)$};
+                  \filldraw (0.5,2.5) circle (2pt) node[left] {$(h-a,k)$};
+                  \filldraw (4.5,2.5) circle (2pt) node[right] {$(h+a,k)$};
+                  \filldraw (2.5,3.7) circle (2pt) node[above] {$(h,k+b)$};
+                  \filldraw (2.5,1.3) circle (2pt) node[below] {$(h,k-b)$};
+                  \filldraw[red] (1.0,2.5) circle (1.5pt) node[below] {$(h-c,k)$};
+                  \filldraw[red] (4.0,2.5) circle (1.5pt) node[below] {$(h+c,k)$};
+                  \draw[dashed, red] (0,2.5) -- (5.5,2.5);
+                  \draw[dashed, red] (2.5,0) -- (2.5,5.5);
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+    <figure xml:id="fig-vert-summary-graph">
+        <caption>Vertical Ellipse Graph</caption>
+        <image>
+            <latex-image>
+                \begin{tikzpicture}[scale=0.5, every node/.style={font=\scriptsize}]
+                  \draw[-&gt;] (-0.5,0) -- (5.5,0) node[right] {$x$};
+                  \draw[-&gt;] (0,-0.5) -- (0,5.5) node[above] {$y$};
+                  \coordinate (C) at (2.5,2.5);
+                  \draw[blue, ultra thick] (C) ellipse (1.2 and 2);
+                  \filldraw (C) circle (2pt) node[right] {$(h,k)$};
+                  \filldraw (2.5,4.5) circle (2pt) node[above] {$(h,k+a)$};
+                  \filldraw (2.5,0.5) circle (2pt) node[below] {$(h,k-a)$};
+                  \filldraw (1.3,2.5) circle (2pt) node[left] {$(h-b,k)$};
+                  \filldraw (3.7,2.5) circle (2pt) node[right] {$(h+b,k)$};
+                  \filldraw[red] (2.5,4.0) circle (1.5pt) node[left] {$(h,k+c)$};
+                  \filldraw[red] (2.5,1.0) circle (1.5pt) node[left] {$(h,k-c)$};
+                  \draw[dashed, red] (0,2.5) -- (5.5,2.5);
+                  \draw[dashed, red] (2.5,0) -- (2.5,5.5);
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+</sidebyside>
+</subsection>
+
+<subsection xml:id="subsec-ellipse-properties-summary">
+   <title>Standard Forms of an Equation of an Ellipse Centered at <m>(h, k)</m></title>
+  
+  <p>
+    Ellipses not centered at the origin are horizontal or vertical shifts of the standard form the ellipse centered at <m>(0, 0)</m>, created by replacing <m>x</m> and <m>y</m> with <m>x - h</m> and <m>y - k</m> to move the center to <m>(h, k)</m>.
+  </p>
+
+  <p>Assume: <m>a > b > 0</m>. Note: length of the major axis is <m>2a</m>, and length of the minor axis is <m>2b</m>.</p>
+<table xml:id="table-ellipse-summary-fixed">
+    <title>Properties of Ellipses</title>
+    <tabular bottom="minor" top="minor" left="minor" right="minor">
+        <col width="25%" />
+        <col width="37.5%" />
+        <col width="37.5%" />
+        
+        <row header="yes">
+            <cell><p><alert>Major Axis</alert></p></cell>
+            <cell><p><alert>Horizontal</alert></p></cell>
+            <cell><p><alert>Vertical</alert></p></cell>
+        </row>
+        <row>
+            <cell><p>Standard Equation</p></cell>
+            <cell><p><m>\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1</m></p></cell>
+            <cell><p><m>\frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1</m></p></cell>
+        </row>
+        <row>
+            <cell><p>Vertices</p></cell>
+            <cell><p><m>(h \pm a, k)</m></p></cell>
+            <cell><p><m>(h, k \pm a)</m></p></cell>
+        </row>
+        <row>
+            <cell><p>Minor Axis Endpoints</p></cell>
+            <cell><p><m>(h, k \pm b)</m></p></cell>
+            <cell><p><m>(h \pm b, k)</m></p></cell>
+        </row>
+        <row>
+            <cell><p>Foci</p></cell>
+            <cell>
+                <p><m>(h \pm c, k)</m></p>
+                <p><m>b^2 = a^2 - c^2</m></p>
+            </cell>
+            <cell>
+                <p><m>(h, k \pm c)</m></p>
+                <p><m>b^2 = a^2 - c^2</m></p>
+            </cell>
+        </row>
+        <row>
+            <cell><p>Graph</p></cell>
+            <cell>
+                <image source="graphics/horizontal-ellipse.png" width="100%" />
+            </cell>
+            <cell>
+                <image source="graphics/vertical-ellipse.png" width="100%" />
+            </cell>
+        </row>
+    </tabular>
+</table>
+</subsection>
+<!-- Example -->
+<example xml:id="ex-graph-ellipse-hk">
+  <statement>
+    <p>
+      Graph the ellipse. Identify the center, foci, and endpoints of the minor axis.
+      <me>\frac{(x+2)^2}{16} + \frac{(y-3)^2}{9} = 1</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol>
+        <li>
+          <p>
+            The equation is in the form <m>\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1</m>.
+            Since <m>a^2 = 16</m> is larger than <m>b^2 = 9</m>, the major axis is horizontal.
+          </p>
+        </li>
+        <li>
+          <p>
+            The center is <m>(h, k) = (-2, 3)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            With <m>a = 4</m> and <m>b = 3</m>, we find <m>c</m> using <m>c^2 = a^2 - b^2</m>:
+            <me>c^2 = 16 - 9 = 7 \implies c = \sqrt{7}</me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The foci are <m>(h \pm c, k) = (-2 \pm \sqrt{7}, 3)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The endpoints of the minor axis are <m>(h, k \pm b) = (-2, 3 \pm 3)</m>, which are <m>(-2, 6)</m> and <m>(-2, 0)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    
+    <sidebyside width="60%">
+      <image xml:id="img-ellipse-example-grid">
+        <description>Graph of the ellipse centered at (-2,3) with a=4 and b=3.</description>
+        <latex-image>
+          \begin{tikzpicture}[scale=0.5]
+            \draw[thin, gray!40] (-7,-1) grid (3,7);
+            \draw[-&gt;] (-7.2,0) -- (3.2,0) node[right] {\scriptsize $x$};
+            \draw[-&gt;] (0,-1.2) -- (0,7.2) node[above] {\scriptsize $y$};
+            \foreach \x in {-6,-4,-2,2} \draw (\x,2pt) -- (\x,-2pt) node[below] {\tiny $\x$};
+            \foreach \y in {2,4,6} \draw (2pt,\y) -- (-2pt,\y) node[left] {\tiny $\y$};
+            
+            \draw[blue, thick] (-2,3) ellipse (4 and 3);
+            \filldraw[red] (-2,3) circle (3pt) node[above right, black] {\tiny $(-2,3)$};
+            \filldraw[red] ({ -2 + sqrt(7) }, 3) circle (2pt);
+            \filldraw[red] ({ -2 - sqrt(7) }, 3) circle (2pt);
+            \filldraw[blue] (-2,6) circle (2.5pt);
+            \filldraw[blue] (-2,0) circle (2.5pt);
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </sidebyside>
+  </solution>
+</example>
+<!-- try it example -->
+<example xml:id="ex-try-ellipse-hk">
+  <title>Try It</title>
+  <statement>
+    <p>
+      Graph the ellipse. Identify the center, vertices, and endpoints of the minor axis.
+      <me>\frac{(x+1)^2}{25} + \frac{(y-2)^2}{9} = 1</me>
+    </p>
+  </statement>
+  </example>
+  <!-- example -->
+  <example xml:id="ex-ellipse-general-to-standard">
+  <statement>
+    <p>
+      Write the equation of the ellipse in standard form. Identify the center, foci, and vertices.
+      <me>9x^2 + 5y^2 + 18x - 30y + 9 = 0</me>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, group the <m>x</m> and <m>y</m> terms and move the constant to the right side:
+      <me>9(x^2 + 2x) + 5(y^2 - 6y) = -9</me>
+    </p>
+    <p>
+      Complete the square for both variables:
+      <me>9(x^2 + 2x + 1) + 5(y^2 - 6y + 9) = -9 + 9(1) + 5(9)</me>
+      <me>9(x + 1)^2 + 5(y - 3)^2 = 45</me>
+    </p>
+    <p>
+      Divide by 45 to obtain the standard form:
+      <me>\frac{(x + 1)^2}{5} + \frac{(y - 3)^2}{9} = 1</me>
+    </p>
+    <p>
+      From this form, we identify:
+      <ul>
+        <li><p>The center is <m>(h, k) = (-1, 3)</m>.</p></li>
+        <li><p>The major axis is vertical since <m>9 > 5</m>.</p></li>
+        <li>
+          <p>
+            With <m>a=3</m> and <m>c = \sqrt{9-5} = 2</m>, the vertices are <m>(-1, 6)</m> and <m>(-1, 0)</m>, and the foci are <m>(-1, 5)</m> and <m>(-1, 1)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </solution>
+</example>
+<!-- try it example -->
+<example xml:id="ex-try-ellipse-general-to-standard">
+  <title>Try It</title>
+  <statement>
+    <p>
+      Write the equation of the ellipse in standard form. Identify the center, foci, and vertices.
+      <me>2x^2 + 11y^2 - 12x + 44y + 40 = 0</me>
+    </p>
+  </statement>
+  </example>
+  <!-- example -->
+  <example xml:id="ex-ellipse-find-equation">
+  <statement>
+    <p>
+      Give the equation of an ellipse in standard form with center <m>(1, 3)</m>, focus at <m>(-2, 3)</m>, and vertex at <m>(5, 3)</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      <ol>
+        <li>
+          <p>
+            The center is given as <m>(h, k) = (1, 3)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Since the center, focus, and vertex all lie on the horizontal line <m>y = 3</m>, the major axis is horizontal. The standard form is:
+            <me>\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The distance from the center <m>(1, 3)</m> to the vertex <m>(5, 3)</m> is <m>a = 5 - 1 = 4</m>, so <m>a^2 = 16</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The distance from the center <m>(1, 3)</m> to the focus <m>(-2, 3)</m> is <m>c = 1 - (-2) = 3</m>, so <m>c^2 = 9</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the relationship <m>c^2 = a^2 - b^2</m>, we find <m>b^2</m>:
+            <me>9 = 16 - b^2 \implies b^2 = 7</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Substituting the values into the standard form, we get:
+            <me>\frac{(x - 1)^2}{16} + \frac{(y - 3)^2}{7} = 1</me>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
+<!-- try it example -->
+<example xml:id="ex-try-ellipse-find-equation">
+  <title>Try It</title>
+  <statement>
+    <p>
+      Write down the equation of an ellipse in standard form with vertices <m>(-3, 3)</m> and <m>(-3, 3)</m>, focus at <m>(2\sqrt{2}, 3)</m>, and <m>(-2\sqrt{2}, 3)</m>.
+    </p>
+  </statement>
+  </example>
+<!-- eccentricity -->
+<subsection xml:id="sec-eccentricity-ellipse">
+  <title>Determine and Apply the Eccentricity of an Ellipse</title>
+
+  <definition xml:id="def-eccentricity-ellipse">
+    <title>Eccentricity of an Ellipse</title>
+    <statement>
+      <p>
+        The degree of elongation of an ellipse is measured by the <term>eccentricity</term>, <m>e</m>, of the ellipse.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For an ellipse defined by 
+    <me>\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 \text{ or } \frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1</me>, 
+    the <term>eccentricity</term>, <m>e</m>, is given by 
+    <me>e = \frac{c}{a}</me> 
+    where <m>a \gt b \gt 0</m>, <m>c \gt 0</m>, and <m>c^2 = a^2 - b^2</m>.
+  </p>
+
+  <p>
+    The eccentricity of an ellipse is a number between 0 and 1. That is, <m>0 \lt e \lt 1</m>.
+  </p>
+  <remark xml:id="remark-ellipse-eccentricity">
+    <p>
+        If the foci are near the vertices (that is, <m>a</m> is only slightly greater 
+        than <m>c</m>), then the ellipse is more elongated. 
+        If the foci are near the center, then the ellipse is more circular.
+    </p>
+</remark>
+</subsection>
+<example xml:id="ex-ellipse-eccentricity">
+  <statement>
+    <p>Determine the eccentricity of the following ellipses.</p>
+    <sidebyside widths="45% 45%">
+      <p><me>\frac{x^2}{225} + \frac{y^2}{9} = 1</me></p>
+      <p><me>\frac{x^2}{9} + \frac{y^2}{4} = 1</me></p>
+    </sidebyside>
+  </statement>
+  <solution>
+    <p>
+      For the first ellipse, <m>a^2 = 225</m> and <m>b^2 = 9</m>. 
+      Then <m>c = \sqrt{225-9} = \sqrt{216} = 6\sqrt{6}</m>.
+      The eccentricity is <m>e = \frac{6\sqrt{6}}{15} = \frac{2\sqrt{6}}{5} \approx 0.98</m>.
+    </p>
+    <p>
+      For the second ellipse, <m>a^2 = 9</m> and <m>b^2 = 4</m>. 
+      Then <m>c = \sqrt{9-4} = \sqrt{5}</m>.
+      The eccentricity is <m>e = \frac{\sqrt{5}}{3} \approx 0.745</m>.
+    </p>
+  </solution>
+</example>
+<!-- try it example -->
+<exercise xml:id="ez-try-it-eccentricity">
+    <title>Try It</title>
+    <statement>
+        <p>
+            Determine the eccentricity of the ellipse given by the equation:
+            <me>\frac{x^2}{16} + \frac{y^2}{25} = 1</me>
+        </p>
+    </statement>
+    <hint>
+        <p>
+            First, identify <m>a^2</m> and <m>b^2</m>. Remember that <m>a^2</m> is always the larger denominator. Then use the formula <m>c^2 = a^2 - b^2</m> to find the focal distance.
+        </p>
+    </hint>
+    <answer>
+        <p>
+            <m>e = \frac{3}{5} = 0.6</m>
+        </p>
+    </answer>
+    <solution>
+        <p>
+            In this equation, the larger denominator is under <m>y^2</m>, so <m>a^2 = 25</m> and <m>b^2 = 16</m>. 
+            This means the ellipse is vertical.
+        </p>
+        <p>
+            First, we find <m>c</m>:
+            <md>
+                <mrow>c^2 \amp = a^2 - b^2</mrow>
+                <mrow>c^2 \amp = 25 - 16 = 9</mrow>
+                <mrow>c \amp = 3</mrow>
+            </md>
+        </p>
+        <p>
+            Now, we calculate the eccentricity <m>e</m>:
+            <me>e = \frac{c}{a} = \frac{3}{5} = 0.6</me>
+        </p>
+    </solution>
+</exercise>
+
+<!-- example -->
+<example xml:id="ex-ellipse-from-vertices-eccentricity">
+  <statement>
+    <p>
+      Write the standard form of the equation of an ellipse with vertices <m>(-6, 7)</m> and <m>(2,7)</m> and eccentricity <m>\frac{3}{4}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we find the center <m>(h,k)</m> by calculating the midpoint of the vertices:
+      <me>h = \frac{-6 + 2}{2} = -2, \quad k = 7</me>
+      The center is <m>(-2, 7)</m>. Since the vertices have the same <m>y</m>-coordinate, the major axis is horizontal.
+    </p>
+    <p>
+      The distance from the center <m>(-2, 7)</m> to the vertex <m>(2, 7)</m> gives the semi-major axis <m>a</m>:
+      <me>a = 2 - (-2) = 4</me>
+    </p>
+    <p>
+      We use the eccentricity <m>e = \frac{3}{4}</m> to find <m>c</m>:
+      <me>\frac{c}{a} = \frac{3}{4} \implies \frac{c}{4} = \frac{3}{4} \implies c = 3</me>
+    </p>
+    <p>
+      Now find <m>b^2</m> using the relationship <m>c^2 = a^2 - b^2</m>:
+      <md>
+        <mrow>3^2 \amp = 4^2 - b^2</mrow>
+        <mrow>9 \amp = 16 - b^2</mrow>
+        <mrow>b^2 \amp = 7</mrow>
+      </md>
+    </p>
+    <p>
+      The standard form of the equation is:
+      <me>\frac{(x + 2)^2}{16} + \frac{(y - 7)^2}{7} = 1</me>
+    </p>
+  </solution>
+</example>
+<!-- try it example -->
+<exercise xml:id="ez-try-it-ellipse-vertices-ecc">
+    <title>Try It</title>
+    <statement>
+        <p>
+            Find the standard form of the equation of the ellipse with vertices <m>(3, -4)</m> and <m>(3, 6)</m> and eccentricity <m>e = \frac{4}{5}</m>.
+        </p>
+    </statement>
+    <hint>
+        <p>
+            Start by finding the center of the ellipse, which is the midpoint between the two vertices. Then determine the distance <m>a</m> from the center to a vertex and use the eccentricity formula <m>e = \frac{c}{a}</m> to find <m>c</m>.
+        </p>
+    </hint>
+    <answer>
+        <p>
+            <me>\frac{(x - 3)^2}{9} + \frac{(y - 1)^2}{25} = 1</me>
+        </p>
+    </answer>
+    <solution>
+        <p>
+            First, find the center <m>(h,k)</m> by finding the midpoint of the vertices <m>(3, -4)</m> and <m>(3, 6)</m>:
+            <me>h = 3, \quad k = \frac{-4 + 6}{2} = 1</me>
+            The center is <m>(3, 1)</m>. Since the <m>x</m>-coordinates of the vertices are the same, the major axis is vertical.
+        </p>
+        <p>
+            The distance from the center <m>(3, 1)</m> to the vertex <m>(3, 6)</m> gives the semi-major axis length:
+            <me>a = 6 - 1 = 5</me>
+        </p>
+        <p>
+            Next, we use the eccentricity <m>e = \frac{c}{a}</m> to find the value of <m>c</m>:
+            <me>\frac{4}{5} = \frac{c}{5} \implies c = 4</me>
+        </p>
+        <p>
+            Now, find <m>b^2</m> using the relationship <m>c^2 = a^2 - b^2</m>:
+            <md>
+                <mrow>4^2 \amp = 5^2 - b^2</mrow>
+                <mrow>16 \amp = 25 - b^2</mrow>
+                <mrow>b^2 \amp = 9</mrow>
+            </md>
+        </p>
+        <p>
+            Because the ellipse has a vertical major axis, the value <m>a^2</m> belongs under the <m>y</m> term:
+            <me>\frac{(x - 3)^2}{9} + \frac{(y - 1)^2}{25} = 1</me>
+        </p>
+    </solution>
+</exercise>
 </section>

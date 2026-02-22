@@ -9,8 +9,6 @@
     <target name="print" format="pdf" />
   </targets>
 </project>
-
-
 <!-- SAMPLE MANIFEST illustrating all options. Defaults are given (mostly).              -->
 
 <!-- <project

@@ -12,7 +12,7 @@
 <publication>
   <common>
     <!-- Level at which are html files generated (chapter/section/etc): -->
-      <!--<chunking level="1" />-->
+      <!-- <chunking level="1" /> -->
 
     <!-- Depth for table of contents.  0 means no TOC -->
       <!--<tableofcontents level="1" />-->
@@ -66,8 +66,15 @@
     <!-- numbering should appear.                                     -->
     <!-- For use with a book organized by part, you can set the -->
     <!--  @part-structure to "decorative" or "structural" -->
-      <divisions  chapter-start="9" level="2"/>
+   <divisions chapter-start="9" level="3"/>
 
+  <blocks level="2" counter="ex-pool" />
+
+  <projects level="2" counter="def-pool" />
+
+  <figures level="2" counter="fig-pool" />
+
+  <equations level="2" counter="eq-pool" />
     <!-- The next elements say how the levels deep to break up the    -->
     <!-- numbering of the respective elements. Can't be more than the -->
     <!-- @level on divisions above.                                   -->
@@ -83,6 +90,11 @@
       <!-- sided.  @pageref="yes/no" controls whether page number are   -->
       <!-- included in cross-references                                 -->
   <latex>
+ 
+    <preamble>
+        \usetikzlibrary{shapes.callouts, arrows.meta}
+    </preamble>
+
   <!-- Replace the <latex> tag above with the one below to try these-->
   <!--
     <latex
