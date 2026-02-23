@@ -4,7 +4,19 @@
   <title>Conics</title>
 
   <introduction>
-    <p> Text before the first section. </p>
+   <p>
+            In this chapter, we will study the special curves called conic sections. These shapes are 
+            very important because they describe how planets move in space and how light reflects 
+            off mirrors.
+        </p>
+        <p>
+            In the first section, we will learn about the ellipse, which is a stretched-out circle that shows 
+            the path planets take around the sun. In the second section, we
+            will study the hyperbola, a curve that describes the path of objects that 
+            fly past a planet and never come back. Finally, we will learn 
+            how to use polar coordinates to describe all these shapes using simple rules 
+            about distance and angles.
+        </p>
   </introduction>
 
   <!-- include sections -->
